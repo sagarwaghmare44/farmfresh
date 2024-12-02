@@ -11,6 +11,8 @@ const ManageProducts = () => {
     useEffect(() => {
         fetchProducts();
     }, []);
+    // Fixing the error
+    // And just fixed all the major 2 eror
 
     const fetchProducts = async () => {
         try {
