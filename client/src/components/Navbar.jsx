@@ -49,7 +49,6 @@ function Navbar({ userType = "none" }) {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Farm2Kitchen Logo" className="h-12" />
-          <span className="ml-3 text-xl font-semibold text-green-700">Farm2Kitchen</span>
         </Link>
 
         {/* Mobile Menu Toggle */}
