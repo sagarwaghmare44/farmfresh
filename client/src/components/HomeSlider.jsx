@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 
 import Veg1 from "../assets/Veg1.jpg";
-import Veg2 from "../assets/Veg2.jpg";
+// import Veg2 from "../assets/Veg2.jpg";
 import Veg3 from "../assets/Veg3.jpg";
 import Veg4 from "../assets/Veg4.jpg";
 
@@ -30,7 +30,7 @@ const HomeSlider = () => {
   return (
     <div className="relative max-w-full overflow-hidden">
       <Slider {...settings}>
-        {[Veg1, Veg2, Veg3, Veg4].map((img, index) => (
+        {[Veg1, Veg3, Veg4].map((img, index) => (
           <div key={index} className="relative">
             <div className="absolute inset-0 bg-black/40 z-10" />
             <img
