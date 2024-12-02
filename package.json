@@ -5,18 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": " node -r dotenv/config --experimental-json-modules src/index.js",
+    "run": "node -r dotenv/config --experimental-json-modules src/index.js",
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
     "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
     "start-client": "npm start --prefix client",
-    "start-server": "node -r dotenv/config --experimental-json-modules src/index.js"
+    "start-server": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "author": "sagar",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.0",
+    "nodemon": "^2.0.22"
   },
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "dotenv": "^16.3.1"
   }
 }
