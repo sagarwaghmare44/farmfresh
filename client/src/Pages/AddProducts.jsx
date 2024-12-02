@@ -67,7 +67,7 @@ const AddProducts = () => {
             });
 
             const response = await axios.post(
-                'http://localhost:8000/api/products/add',
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products/add`,
                 productData,
                 {
                     headers: {

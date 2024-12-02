@@ -28,7 +28,7 @@ const Admin = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:8000/api/users/all', {
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/all`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -64,7 +64,7 @@ const Admin = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:8000/api/products/pending', {
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products/pending`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -93,7 +93,7 @@ const Admin = () => {
             console.log('Updating status:', { farmerId, newStatus }); // Debug log
 
             const response = await axios.put(
-                `http://localhost:8000/api/users/farmer-status/${farmerId}`,
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/farmer-status/${farmerId}`,
                 { status: newStatus },
                 {
                     headers: {
@@ -147,7 +147,7 @@ const Admin = () => {
             }
 
             const response = await axios.put(
-                `http://localhost:8000/api/products/${productId}/status`,
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products/${productId}/status`,
                 { status },
                 {
                     headers: {

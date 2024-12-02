@@ -16,7 +16,7 @@ const Products = () => {
     const fetchProducts = async () => {
         try {
             // Get all products and filter for approved ones
-            const response = await axios.get('http://localhost:8000/api/products/all');
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products/all`);
             
             if (response.data.success) {
                 // Filter only approved products
@@ -46,7 +46,7 @@ const Products = () => {
             }
 
             const response = await axios.post(
-                'http://localhost:8000/api/cart/add',
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/cart/add`,
                 { productId },
                 {
                     headers: {

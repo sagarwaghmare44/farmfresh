@@ -20,7 +20,7 @@ const UserDashboard = () => {
         const fetchUserData = async () => {
             try {
                 const userId = localStorage.getItem('userId');
-                const response = await axios.get(`http://localhost:8000/api/users/${userId}`);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${userId}`);
                 setUserInfo(response.data);
                 setLoading(false);
             } catch (error) {
@@ -37,7 +37,7 @@ const UserDashboard = () => {
         e.preventDefault();
         try {
             const userId = localStorage.getItem('userId');
-            await axios.put(`http://localhost:8000/api/users/${userId}`, userInfo);
+            await axios.put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${userId}`, userInfo);
             alert('Profile updated successfully!');
         } catch (error) {
             console.error('Error updating profile:', error);
@@ -64,7 +64,7 @@ const UserDashboard = () => {
             try {
                 const userId = localStorage.getItem('userId');
                 const response = await axios.post(
-                    `http://localhost:8000/api/users/${userId}/avatar`,
+                    `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${userId}/avatar`,
                     formData,
                     {
                         headers: { 'Content-Type': 'multipart/form-data' },

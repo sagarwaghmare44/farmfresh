@@ -21,7 +21,7 @@ const SignUp = () => {
         event.preventDefault();
         
         try {
-            const result = await axios.post('http://localhost:8000/api/users/register', { ...formData, userType });
+            const result = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/register`, { ...formData, userType });
             console.log(result);
 
             if (result.data === "Already registered") {

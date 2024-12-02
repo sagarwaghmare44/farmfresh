@@ -21,7 +21,7 @@ const ManageUsers = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:8000/api/users/all', {
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/all`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -50,7 +50,7 @@ const ManageUsers = () => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:8000/api/users/${userId}`, {
+                await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 toast.success('User deleted successfully');

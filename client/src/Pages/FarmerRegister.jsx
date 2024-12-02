@@ -139,7 +139,7 @@ const FarmerRegister = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/users/farmer-register', 
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/farmer-register`, 
                 formDataToSend,
                 {
                     headers: { 'Content-Type': 'multipart/form-data' },

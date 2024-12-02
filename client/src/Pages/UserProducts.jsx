@@ -18,7 +18,7 @@ const UserProducts = () => {
 
     const fetchApprovedProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/products/approved');
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/products/approved`);
             
             if (response.data.success) {
                 setProducts(response.data.products);
@@ -46,13 +46,13 @@ const UserProducts = () => {
             }
 
             console.log('Making request to add to cart:', {
-                url: 'http://localhost:8000/api/cart/add',
+                url: `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/cart/add`,
                 productId,
                 token
             });
 
             const response = await axios.post(
-                'http://localhost:8000/api/cart/add',
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/cart/add`,
                 { productId },
                 {
                     headers: {

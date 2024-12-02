@@ -25,7 +25,7 @@ const ContactUs = () => {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:8000/api/contact', formData);
+            const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/contact`, formData);
             if (response.status === 200) {
                 alert('Message sent successfully!');
                 setFormData({

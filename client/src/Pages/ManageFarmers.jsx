@@ -21,14 +21,14 @@ const ManageFarmers = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:8000/api/users/all', {
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/all`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
 
             if (response.data.success) {
-                setFarmers(response.data.data.farmers); // Access farmers from data property
+                setFarmers(response.data.data.farmers); 
             } else {
                 toast.error('Failed to fetch farmers');
             }
@@ -50,7 +50,7 @@ const ManageFarmers = () => {
         try {
             const token = localStorage.getItem('token');
             const response = await axios.put(
-                `http://localhost:8000/api/users/farmer-status/${farmerId}`,
+                `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/farmer-status/${farmerId}`,
                 { status: newStatus },
                 {
                     headers: {
@@ -74,7 +74,7 @@ const ManageFarmers = () => {
         if (window.confirm('Are you sure you want to delete this farmer?')) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:8000/api/users/${farmerId}`, {
+                await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${farmerId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 toast.success('Farmer deleted successfully');
